@@ -12,5 +12,6 @@ namespace crmUrbano.Data
             : base(options)
         {
         }
+        public DbSet<crmUrbano.Models.Catalogo> Catalogo { get; set; }
     }
 }
