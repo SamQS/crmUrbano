@@ -25,6 +25,8 @@ namespace crmUrbano.Models
         public String Status {get; set;}
 
         
+        public virtual ICollection<Carrito> Carrito { get; set; }
+        
 
 
         
