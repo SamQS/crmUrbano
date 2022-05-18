@@ -1,12 +1,47 @@
+@model IEnumerable<crmUrbano.Models.Catalogo>
+
+
 @{
     ViewData["Title"] = "Carrito";
 }
 <body>
+<main role="main">
+ 
+<h1 class="text-center">DETALLE INMUEBLES</h1>
+<hr size="5px" width="10%" align="center" color="#000000"/>
+<h2 class="text-center" >Consulta Detalles y Precios</h2>
+<hr size="0px" width="10%" align="center" color="#ffffff"/>
+<div class="container">
+    <h1>@ViewData["Message"]</h1>
+    <div class="row">
+      <div class="col">
+        <div id="products" class="mb-3">
+          <div class="row">
 
-   <script src="/lib/jquery/dist/jquery.min.js"></script>
-    <script src="/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="/lib/jquery.easing/jquery.easing.min.js"></script>
-    <script src="/js/site.js"></script>
-    <script src="/lib/jquery/dist/jquery.min.js"></script>
-    <script src="/js/site.js?v=kiomgqYW2VDSehqhKuh0EW7qq2fYklauFIbQW6OojRI"></script>
+            @foreach (var item in Model) {
+            <div class="col-sm-4">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <div class="card-img-actions">
+                    <img class="img-responsive" width="310" height="500"
+                       src="~/img/@item.ImagenName" alt="@item.ImagenName"  />
+                  </div>
+                </div>
+                <div style="text-align:center;" class="card-body">
+                  <h5 class="card-title" style="color:#ffffff;">@Html.DisplayFor(modelItem => item.Direccion)</h5>
+                  <hr size="15px" width="50%" align="center" color="#ffffff"/> 
+                  <h5 class="card-text" style="color:#ffffff;">@Html.DisplayFor(modelItem => item.Name)</h5>                  
+                  <a class="btn btn-primary" asp-action="Add" asp-route-id="@item.ID">Cotizar</a>
+                </div>
+              </div>
+            </div>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  </main>
   </body>

@@ -13,6 +13,8 @@ namespace crmUrbano.Data
             : base(dco)
         {
         }
+
+        
         public DbSet<crmUrbano.Models.Catalogo> Catalogo { get; set; }
 
         public DbSet<crmUrbano.Models.Carrito> Carrito { get; set; }

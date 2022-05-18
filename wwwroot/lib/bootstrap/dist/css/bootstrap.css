@@ -4585,6 +4585,7 @@ input[type="button"].btn-block {
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   padding: 1.25rem;
+  background: linear-gradient(180deg, #1C4889 0%,#1C4889 100%);
 }
 
 .card-title {

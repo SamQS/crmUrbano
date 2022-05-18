@@ -26,10 +26,11 @@ public InmueblesController(ILogger<HomeController> logger, ApplicationDbContext 
             _context = context;
             _userManager = userManager;
         }
-        public IActionResult Inmuebles()
-        {
-            return View();
+        public async Task<IActionResult> Inmuebles()
+         {
+            var catalogos = from o in _context.Catalogo select o;
+            catalogos = catalogos.Where(s => s.Status.Equals("D"));
+            return View(await catalogos.ToListAsync());
         }
-        
     }
 }
