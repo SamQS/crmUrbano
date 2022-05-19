@@ -1,10 +1,11 @@
 @model IEnumerable<crmUrbano.Models.Carrito>
 
 @{
-    ViewData["Title"] = "Carrito";
+    ViewData["Title"] = "Index";
 }
 
-<h1>CARRITO</h1>
+<h1>CARRITO VENTAS</h1>
+<hr size="5px" width="30%" align="left" color="#000000"/>
 
 <!--<p>
     <a asp-action="Create">Create New</a>
@@ -13,14 +14,18 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Usuario)
+               <h4 @Html.DisplayNameFor(model => model.Usuario)>Cliente</h4> 
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Price)
+               <h4 @Html.DisplayNameFor(model => model.Price)>Precio</h4>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Catalogo)
+               <h4 @Html.DisplayNameFor(model => model.Direccion)>Dirección</h4>
             </th>
+            <th>
+               <h4 @Html.DisplayNameFor(model => model.Name)>Detalles</h4> 
+            </th>
+
             <th></th>
         </tr>
     </thead>
@@ -34,7 +39,10 @@
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Catalogo.ID)
+                @Html.DisplayFor(modelItem => item.Direccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |

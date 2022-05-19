@@ -26,6 +26,10 @@ namespace crmUrbano.Models
 
         
         public virtual ICollection<Carrito> Carrito { get; set; }
+
+  
+
+
         
 
 

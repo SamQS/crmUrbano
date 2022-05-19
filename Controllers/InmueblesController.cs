@@ -32,5 +32,27 @@ public InmueblesController(ILogger<HomeController> logger, ApplicationDbContext 
             catalogos = catalogos.Where(s => s.Status.Equals("D"));
             return View(await catalogos.ToListAsync());
         }
+        public async Task<IActionResult> Add(int? id)
+        {
+            var userID = _userManager.GetUserName(User);
+            if(userID == null){
+                ViewData["Message"] = "Por favor debe loguearse antes de agregar un Inmueble";
+                List<Catalogo> catalogos = new List<Catalogo>();
+                return  View("Inmuebles",catalogos);
+            }else{
+
+                var catalogo = await _context.Catalogo.FindAsync(id);
+                Carrito carrito = new Carrito();
+                carrito.Usuario = userID;       
+                carrito.Price = catalogo.Price; 
+                carrito.Direccion = catalogo.Direccion;
+                carrito.Name = catalogo.Name;   
+                carrito.Catalogo = catalogo;     
+                _context.Add(carrito);
+                await _context.SaveChangesAsync();
+                return  RedirectToAction(nameof(Inmuebles));
+             }
+        }        
+         
     }
 }
