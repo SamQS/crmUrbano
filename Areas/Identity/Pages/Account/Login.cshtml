@@ -5,77 +5,128 @@
     ViewData["Title"] = "Log in";
 }
 
-<h1>@ViewData["Title"]</h1>
-<div class="row">
-    <div class="col-md-4">
-        <section>
-            <form id="account" method="post">
-                <h4>Use a local account to log in.</h4>
-                <hr />
-                <div asp-validation-summary="All" class="text-danger"></div>
-                <div class="form-group">
-                    <label asp-for="Input.Email"></label>
-                    <input asp-for="Input.Email" class="form-control" />
-                    <span asp-validation-for="Input.Email" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Input.Password"></label>
-                    <input asp-for="Input.Password" class="form-control" />
-                    <span asp-validation-for="Input.Password" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <div class="checkbox">
-                        <label asp-for="Input.RememberMe">
-                            <input asp-for="Input.RememberMe" />
-                            @Html.DisplayNameFor(m => m.Input.RememberMe)
-                        </label>
+<!--JQUERY-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+    <link rel="stylesheet" href="bootstrap.min.css">
+    
+    <!-- Los iconos tipo Solid de Fontawesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+    <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC&family=Carter+One&family=Viga&display=swap" rel="stylesheet">
+
+<body>
+    <main role="main">
+    <section id="catalogue" class="biografia section-bggg">
+        
+        <div class="container bg-white mt-5 rounded shadow " >
+        <div class="row align-items-center align-items-stretch">
+            <div class="col d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded bg">
+                <img src="~/img/urbanobarner.jpg" alt=""  class="position-relative" >
+            </div>
+
+        
+     <div class="col bg-white p-5 col-lg-7 col-xl-6 rounded-end">
+            
+                <div class="section-title section-titleee" align="center">
+                    <img src="~/img/dsp1.png" alt="" style="width:90px" class="position-relative" >
+                    <h2 class="fw-bold text-center pt-4 mb-4">Iniciar sesion</h2>
+                
+            
+                <form id="account" method="post">
+                    
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="mb-4">
+                        <label asp-for="Input.Email" class="form-label">Correo electrónico</label>
+                        <input asp-for="Input.Email" type="email" class="form-control" />
+                        <span asp-validation-for="Input.Email" class="text-danger"></span>
                     </div>
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Log in</button>
-                </div>
-                <div class="form-group">
-                    <p>
-                        <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
-                    </p>
-                    <p>
-                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
-                    </p>
-                </div>
-            </form>
-        </section>
-    </div>
-    <div class="col-md-6 col-md-offset-2">
-        <section>
-            <h4>Use another service to log in.</h4>
-            <hr />
-            @{
-                if ((Model.ExternalLogins?.Count ?? 0) == 0)
-                {
-                    <div>
-                        <p>
-                            There are no external authentication services configured. See <a href="https://go.microsoft.com/fwlink/?LinkID=532715">this article</a>
-                            for details on setting up this ASP.NET application to support logging in via external services.
-                        </p>
+                    <div class="mb-4">
+                        <label asp-for="Input.Password">Contraseña</label>
+                        <input asp-for="Input.Password" class="form-control" />
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
                     </div>
-                }
-                else
-                {
-                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
-                        <div>
-                            <p>
-                                @foreach (var provider in Model.ExternalLogins)
-                                {
-                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
-                                }
-                            </p>
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label asp-for="Input.RememberMe">
+                                <input asp-for="Input.RememberMe" />
+                                @Html.DisplayNameFor(m => m.Input.RememberMe)
+                            </label>
                         </div>
-                    </form>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="boton btn-primary"><span>Iniciar Sesion</span></button>
+             <style>
+                
+                 h2{
+                    font-family:'Carter One', cursive;
+                 }
+                label{
+                     font-family: 'Alegreya Sans SC', sans-serif;
+                 }
+                  a{
+                     font-family: 'Poppins', sans-serif;
+                     color: #fff;
+                 }
+                 .boton {
+	                display: inline-flex;
+	                align-items: center;
+	                justify-content: center;
+	                width: 40%;
+	                height: 40px;
+	                background: #141414;
+	                color: #fff;
+	                font-family: 'Viga', sans-serif;
+	                font-size: 20px;
+	                font-weight: 500;
+	                border: none;
+	                cursor: pointer;
+	                text-transform: uppercase;
+	                transition: .3s ease all;
+	                border-radius: 5px;
+	                position: relative;
+	                overflow: hidden;
                 }
-            }
-        </section>
+
+                .boton span {
+	                position: relative;
+	                z-index: 2;
+	                transition: .3s ease all;
+                }
+                .boton.btn-primary::after {
+	                content: "";
+	                width: 100%;
+	                position: absolute;
+	                z-index: 1;
+	                top: 0;
+	                left: calc(-100% - 80px);
+	                border-bottom: 80px solid #286cff;
+	                border-right: 80px solid transparent;
+	                transition: .4s ease-in-out all;
+                }
+
+                .boton.btn-primary:hover::after {
+	            left: 0;
+                }
+            </style>
+                    </div>
+                    <div class="position-relative" >
+                            <a id="forgot-password" asp-page="./ForgotPassword"><h9>¿No recuerdas tu contraseña?</h9></a>
+                        </br>
+                            <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl"><h9>Registrar un Nuevo Usuario</h9></a>
+                        
+                    </div>
+                </form>
+           
+        </div>
+    
     </div>
-</div>
+    <script src="bootstrap.bundle.min.js"></script>
+</body>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
