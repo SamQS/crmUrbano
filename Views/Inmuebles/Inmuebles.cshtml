@@ -24,14 +24,17 @@
                 <div class="card-body">
                   <div class="card-img-actions">
                     <img class="img-responsive" width="310" height="500"
-                       src="~/img/@item.ImagenName" alt="@item.ImagenName"  />
+                       src="~/img/@item.ImagenName" alt="@item.ImagenName" 
+                       />
+                       
                   </div>
                 </div>
                 <div style="text-align:center;" class="card-body">
                   <h5 class="card-title" style="color:#ffffff;">@Html.DisplayFor(modelItem => item.Direccion)</h5>
                   <hr size="15px" width="50%" align="center" color="#ffffff"/> 
                   <h5 class="card-text" style="color:#ffffff;">@Html.DisplayFor(modelItem => item.Name)</h5>                   
-                  <a class="btn btn-primary" asp-action="Add" asp-route-id="@item.ID">Cotizar</a>
+                  <a class="btn btn-primary" asp-action="Add" asp-route-id="@item.ID">Agregar al Carrito</a>
+                  <a class="btn btn-primary" asp-action="Add" asp-route-id="@item.ID">Ver Detalles</a>
                 </div>
               </div>
             </div>

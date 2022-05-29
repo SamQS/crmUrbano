@@ -7,23 +7,36 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using crmUrbano.Data;
 using crmUrbano.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace crmUrbano.Controllers
 {
     public class CarritoController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public CarritoController(ApplicationDbContext context)
+        public CarritoController(ApplicationDbContext context, UserManager<IdentityUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: Carrito
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Carrito.Include(c => c.Catalogo);
-            return View(await applicationDbContext.ToListAsync());
+           var userID = _userManager.GetUserName(User);
+           if(userID == "diegodsqs3@gmail.com"){
+         var applicationDbContext = _context.Carrito.Include(c => c.Catalogo);            
+        return View(await applicationDbContext.ToListAsync());
+           }else{
+               var items = from o in _context.Carrito select o;
+            items = items.Include(c => c.Catalogo).
+            Where(s => s.Usuario.Equals(userID));            
+            return View(await items.ToListAsync());
+           }
+            
+
         }
 
         // GET: Carrito/Details/5
