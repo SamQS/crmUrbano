@@ -13,19 +13,20 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+            <h5 @Html.DisplayNameFor(model => model.Name)>Detalles Inmueble</h5>
+                 
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Direccion)
+                <h5 @Html.DisplayNameFor(model => model.Direccion)>Direccion</h5>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Price)
+               <h5 @Html.DisplayNameFor(model => model.Price)>Precio</h5>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ImagenName)
+              <h5  @Html.DisplayNameFor(model => model.ImagenName)>Nombre de Imagen</h5>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Status)
+              <h5  @Html.DisplayNameFor(model => model.Status)>Estado</h5>
             </th>
             <th></th>
         </tr>
@@ -49,9 +50,9 @@
                 @Html.DisplayFor(modelItem => item.Status)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.ID">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Detalles</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Borrar</a>
             </td>
         </tr>
 }

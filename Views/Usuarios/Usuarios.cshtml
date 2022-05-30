@@ -1,0 +1,33 @@
+@model IEnumerable<crmUrbano.Models.Carrito>
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>USUARIOS REGISTRADOS</h1>
+<hr size="5px" width="30%" align="left" color="#000000"/>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               <h4 @Html.DisplayNameFor(model => model.Usuario)>Usuario Registrado</h4> 
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Usuario)
+            </td>      
+        </tr>
+}
+    </tbody>
+</table>

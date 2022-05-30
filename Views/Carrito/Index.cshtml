@@ -1,11 +1,24 @@
 @model IEnumerable<crmUrbano.Models.Carrito>
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
 
 @{
     ViewData["Title"] = "Index";
 }
+@if (SignInManager.IsSignedIn(User))
+{
+     @if(UserManager.GetUserName(User).Equals("diegodsqs3@gmail.com")){
+         <h1>VENTAS GENERALES</h1>
+         <hr size="5px" width="30%" align="left" color="#000000"/>
+     }else
+     {
+         <h1>CARRITO VENTAS</h1>
+         <hr size="5px" width="30%" align="left" color="#000000"/>
+     }
+}
 
-<h1>CARRITO VENTAS</h1>
-<hr size="5px" width="30%" align="left" color="#000000"/>
+
 
 <!--<p>
     <a asp-action="Create">Create New</a>
@@ -44,11 +57,26 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
-            </td>
+@if (SignInManager.IsSignedIn(User))
+{
+     @if(UserManager.GetUserName(User).Equals("diegodsqs3@gmail.com")){
+         <td>
+
+                <a asp-action="Edit" asp-route-id="@item.ID">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Ver Detalles</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Borrar</a>
+        </td>
+     }
+     else{
+
+        <td>
+        <a asp-action="Delete" asp-route-id="@item.ID">Borrar</a>
+        </td>
+
+     }
+}
+                
+            
         </tr>
 }
     </tbody>
