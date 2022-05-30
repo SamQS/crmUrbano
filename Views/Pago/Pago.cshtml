@@ -1,0 +1,38 @@
+@model IEnumerable<crmUrbano.Models.Catalogo>
+
+
+@{
+    ViewData["Title"] = "Carrito";
+}
+<body>
+<h1 class="text-center">METODO DE PAGO</h1>
+<hr size="5px" width="10%" align="center" color="#000000"/>
+
+<form >    
+  
+ <div class="row">
+     <h4>Seleccione un metodo de pago:</h4>
+     
+        <div class="col-lg-2">
+        <div class="form-group">              
+            <input type="checkbox" name = "pagoPersonal" class = "form-control" onchange= "window.location.replace('/PagoPersonal/pagopersonal')">
+         </div>   
+         <div class="form-group"> 
+            <input type="checkbox" name = "pagoEfectivo" class = "form-control" onchange= "window.location.replace('/PagoEfectivo/pagoefectivo')">
+         </div> 
+         </div>
+         <div class="col-lg-3">
+      <div class="form-group">
+        <span class="hide" id="msg_rut" style="color:black; position: absolute;margin-top: 5px; margin-left: -80px;">Pago al Contado</span>
+</div>
+        <div class="form-group">
+        <span class="hide" id="msg_rut" style="color:black; position: absolute;margin-top: 45px; margin-left: -80px;">Pago a Plazos</span>
+      </div>
+
+
+    </div>      
+          </div>
+<hr size="5px" width="30%" align="left" color="#000000"/>
+          <a href="/Carrito/Index" class="btn btn-primary text-white"  aling = "">Volver </a> 
+</form>
+</body>
