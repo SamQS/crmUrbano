@@ -35,10 +35,11 @@ public InmueblesController(ILogger<HomeController> logger, ApplicationDbContext 
         public async Task<IActionResult> Add(int? id)
         {
             var userID = _userManager.GetUserName(User);
-            if(userID == null){
-                ViewData["Message"] = "Por favor debe loguearse antes de agregar un Inmueble";
+            if(userID == null){              
+                
+
                 List<Catalogo> catalogos = new List<Catalogo>();
-                return  View("Inmuebles",catalogos);
+                return  View("InmueblesL",catalogos);
             }else{
 
                 var catalogo = await _context.Catalogo.FindAsync(id);
