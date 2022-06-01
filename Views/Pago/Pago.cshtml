@@ -2,37 +2,32 @@
 
 
 @{
-    ViewData["Title"] = "Carrito";
+    ViewData["Title"] = "MetodoPago";
 }
 <body>
+   <div class = "container">
 <h1 class="text-center">METODO DE PAGO</h1>
 <hr size="5px" width="10%" align="center" color="#000000"/>
 
 <form >    
   
- <div class="row">
+ 
      <h4>Seleccione un metodo de pago:</h4>
-     
-        <div class="col-lg-2">
-        <div class="form-group">              
-            <input type="checkbox" name = "pagoPersonal" class = "form-control" onchange= "window.location.replace('/PagoPersonal/pagopersonal')">
-         </div>   
-         <div class="form-group"> 
-            <input type="checkbox" name = "pagoEfectivo" class = "form-control" onchange= "window.location.replace('/PagoEfectivo/pagoefectivo')">
-         </div> 
-         </div>
-         <div class="col-lg-3">
-      <div class="form-group">
-        <span class="hide" id="msg_rut" style="color:black; position: absolute;margin-top: 5px; margin-left: -80px;">Pago al Contado</span>
-</div>
-        <div class="form-group">
-        <span class="hide" id="msg_rut" style="color:black; position: absolute;margin-top: 45px; margin-left: -80px;">Pago a Plazos</span>
-      </div>
-
-
-    </div>      
-          </div>
-<hr size="5px" width="30%" align="left" color="#000000"/>
+     <div class = container>
+        
+        <div class="container">              
+         <label for="comp-name"> 
+          <input  type="checkbox" name = "PagoContado" value="first_checkbox" onchange= "window.location.replace('/PagoContado/PagoContado')" > Pago al Contado</label>
+         <br>
+                  
+         <label for="comp-name"> 
+         <input  type="checkbox" name = "PagoPlazos" value="first_checkbox" onchange= "window.location.replace('/PagoPlazos/PagoPlazos')"> Pago a Plazos</label>
+        
+                     
+          
+          <hr size="5px" width="7%"  color="#fffff"/>
           <a href="/Carrito/Index" class="btn btn-primary text-white"  aling = "">Volver </a> 
+          </div>
 </form>
+</div>
 </body>
