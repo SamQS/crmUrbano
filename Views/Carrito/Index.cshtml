@@ -8,6 +8,7 @@
 }
 
 <div class  = "container">
+    <hr>
 @if (SignInManager.IsSignedIn(User))
 {
      @if(UserManager.GetUserName(User).Equals("diegodsqs3@gmail.com")){
@@ -102,6 +103,19 @@
 
          <h5 >Monto Total: $ @total.000 </h5> 
 <hr size="5px" width="5%" align="left" color="#000000"/>
+
+         
+
+
+@if (SignInManager.IsSignedIn(User))
+{
+     @if(UserManager.GetUserName(User).Equals("diegodsqs3@gmail.com")){
+         
+     }else
+     {
          <a href="/Pago/Pago" class="btn btn-primary text-white" >CONTINUAR</a> 
+     }
+}
+
 </div>
 </div>

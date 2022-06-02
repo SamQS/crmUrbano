@@ -58,7 +58,7 @@ namespace crmUrbano.Areas.Identity.Pages.Account
 
             [DataType(DataType.Password)]
             [Display(Name = "Confirm password")]
-            [Compare("Password", ErrorMessage = "Las contraseñas no coinciden")]s
+            [Compare("Password", ErrorMessage = "Las contraseñas no coinciden")]
             public string ConfirmPassword { get; set; }
         }
 
@@ -78,7 +78,7 @@ namespace crmUrbano.Areas.Identity.Pages.Account
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
-                    _logger.LogInformation("User created a new account with password.");
+                    _logger.LogInformation("El usuario creó una nueva cuenta con contraseña.");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
