@@ -42,15 +42,15 @@ namespace crmUrbano.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
-            [EmailAddress]
+             [Required]
+            [EmailAddress(ErrorMessage = "El Correo electrónico no es una dirección de correo electrónico válida.")]
             public string Email { get; set; }
 
             [Required]
             [DataType(DataType.Password)]
             public string Password { get; set; }
 
-            [Display(Name = "Remember me?")]
+            [Display(Name = "Recuerdame?")]
             public bool RememberMe { get; set; }
         }
 
