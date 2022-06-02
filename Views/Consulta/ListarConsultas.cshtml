@@ -1,0 +1,34 @@
+@model List<Consulta>
+@{
+    ViewData["Title"] = "Consultas";
+}
+
+<section id="biografia" class="biografia section-bg">
+
+
+
+<div class="container">
+        <div class="section-title">
+            <h2 aling = "center "data-aos="fade-in">CONSULTAS REGISTRADAS</h2>            
+        </div> 
+<table class="table table-hover">
+    <thead class="tables">
+<tr>
+    <th>Nombres</th>
+    <th>Email</th>
+    <th>Consulta</th>
+</tr>
+@foreach (var c in Model)
+{
+<thead class="tabless">
+    <tr>
+        <td>@c.Nombre</td>
+        <td>@c.Email</td>
+        <td>@c.Consult</td>
+    </tr>
+   </thead> 
+}
+
+
+</table>
+</section>

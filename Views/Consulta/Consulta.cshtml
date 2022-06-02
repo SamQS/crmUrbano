@@ -1,0 +1,26 @@
+@model Consulta
+@{
+    ViewData["Title"] = "Consulta";
+}
+<body>
+<section id="biografia" class="biografia section-bg">
+      <div class="container">
+        <div class="section-title">
+            <h1 class="titulos" align="center">ENVIANOS TU CONSULTA</h1>
+            <hr size="35px" width="50%" align="center" color="#394665"/> 
+        </div>     
+
+        <form method="POST">    
+          <div class="form-group">
+                    <input asp-for = "Nombre" placeholder="Ingrese su nombre:" class = "form-control">
+          </div>
+          <div class="form-group">
+                    <input asp-for = "Email" type="email" placeholder="Email:" class = "form-control">
+          </div>
+          <div class="form-group">
+           <textarea  asp-for ="Consult"  rows="3" placeholder="Ingrese su consulta:" class = "form-control" ></textarea>
+          </div>
+          <button class="btn btn-primary btn-xg">ENVIAR</button>
+          </form>  
+    </section>
+    </body>
