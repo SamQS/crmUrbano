@@ -1,3 +1,63 @@
+@model IEnumerable<crmUrbano.Models.Carrito>
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
 @{
     ViewData["Title"] = "PagoContado";
 }
+
+<body>
+   <div class = "container">
+<h1 class="text-center">PAGO AL CONTADO</h1>
+<hr size="5px" width="10%" align="center" color="#000000"/>
+
+
+
+
+@foreach (var item in Model) {
+
+            <th>
+               <h4 @Html.DisplayNameFor(model => model.Direccion)>Dirección: </h4><h5>@Html.DisplayFor(modelItem => item.Direccion)</h5>
+            </th>
+            <th>
+               <h4 @Html.DisplayNameFor(model => model.Name)>Detalles: </h4><h5>@Html.DisplayFor(modelItem => item.Name)</h5>
+            </th>
+            <hr size="5px" width="10%" align="left" color="#000000"/>
+
+}
+
+</div>
+@{
+         var total = 0.0;
+         var contar = 1;
+      }
+      @foreach (var item in Model){
+         <tr>
+            @{
+               total = total + item.Price;
+               contar++;
+            }
+         </tr>
+      }
+
+<div class="container">
+     
+
+         <h2 >Usted selecciono Pago al Contado - El Monto a pagar seria $@total.000 </h2> 
+<hr size="5px" width="5%" align="left" color="#000000"/>
+
+         
+
+
+@if (SignInManager.IsSignedIn(User))
+{
+     @if(UserManager.GetUserName(User).Equals("diegodsqs3@gmail.com")){
+         
+     }else
+     {
+         <a href="/Pago/Pago" class="btn btn-primary text-white" >TERMINAR COMPRA</a> 
+     }
+}
+
+</body>

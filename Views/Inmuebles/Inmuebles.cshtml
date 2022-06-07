@@ -6,14 +6,25 @@
 }
 <body>
 <main role="main">
- 
+ <br>
+
 <h1 class="text-center">DETALLE INMUEBLES</h1>
 <hr size="5px" width="10%" align="center" color="#000000"/>
 <h2 class="text-center" >Consulta Detalles y Precios</h2>
 <hr size="0px" width="10%" align="center" color="#ffffff"/>
 
-<div class="container">
 
+<div class="container">
+<br>
+<br>
+<br>
+<form asp-controller="Inmuebles" asp-action="Inmuebles">
+       <p>
+          <input type="text" name="searchString" class="input"> BUSCAR
+         
+
+       </p>
+</form> 
 
     <div class="row">
       <div class="col">

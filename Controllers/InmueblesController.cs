@@ -29,7 +29,7 @@ public InmueblesController(ILogger<HomeController> logger, ApplicationDbContext 
         public async Task<IActionResult> Inmuebles()
          {
             var catalogos = from o in _context.Catalogo select o;
-            catalogos = catalogos.Where(s => s.Status.Equals("D"));
+         catalogos = catalogos.Where(s => s.Status.Equals("D"));
             return View(await catalogos.ToListAsync());
         }
         public async Task<IActionResult> Add(int? id)

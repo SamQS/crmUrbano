@@ -17,7 +17,9 @@ namespace crmUrbano.Models
         public double Price { get; set; }
 
         public String Direccion {get; set;}
+        
         public String Name {get; set;}
+
         public Catalogo Catalogo {get; set; }
 
         public int CatalogoID { get; set; }
