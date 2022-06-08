@@ -12,13 +12,17 @@ namespace crmUrbano.Models
         [Column("id")]
         public int ID {get; set;}
 
-        public String Usuario {get; set;}        
+        public String Usuario {get; set;} 
 
+
+        [DisplayFormat(DataFormatString = "{0:N0}")]
         public double Price { get; set; }
 
         public String Direccion {get; set;}
         
         public String Name {get; set;}
+
+        public String ImagenName { get; set;}
 
         public Catalogo Catalogo {get; set; }
 

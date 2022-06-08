@@ -23,13 +23,14 @@
             <th>
                <h4 @Html.DisplayNameFor(model => model.Name)>Detalles: </h4><h5>@Html.DisplayFor(modelItem => item.Name)</h5>
             </th>
+
             <hr size="5px" width="10%" align="left" color="#000000"/>
 
 }
 
 </div>
 @{
-         var total = 0.0;
+         double total = 0;
          var contar = 1;
       }
       @foreach (var item in Model){
@@ -44,7 +45,7 @@
 <div class="container">
      
 
-         <h2 >Usted selecciono Pago al Contado - El Monto a pagar seria $@total.000 </h2> 
+         <h2 >Usted selecciono Pago al Contado - El Monto a pagar seria $@total </h2> 
 <hr size="5px" width="5%" align="left" color="#000000"/>
 
          

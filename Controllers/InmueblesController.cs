@@ -26,10 +26,16 @@ public InmueblesController(ILogger<HomeController> logger, ApplicationDbContext 
             _context = context;
             _userManager = userManager;
         }
-        public async Task<IActionResult> Inmuebles()
+        public async Task<IActionResult> Inmuebles(string? searchString)
          {
-            var catalogos = from o in _context.Catalogo select o;
-         catalogos = catalogos.Where(s => s.Status.Equals("D"));
+        var catalogos = from o in _context.Catalogo select o;
+        if(!String.IsNullOrEmpty(searchString)){
+                catalogos = catalogos.Where(s => s.Direccion.Contains(searchString)); 
+                
+            }else{
+               catalogos = catalogos.Where(s => s.Status.Equals("D"));  
+            }
+        
             return View(await catalogos.ToListAsync());
         }
         public async Task<IActionResult> Add(int? id)

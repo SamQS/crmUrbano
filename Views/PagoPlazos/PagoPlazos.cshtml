@@ -29,14 +29,22 @@
 
 </div>
 @{
-         var total = 0.0;
-         var contar = 1;
+         double total = 0.0;
+         double contar = 1;
+         double total12 = 0.0;
+         double total24 = 0.0;
+         double total48 = 0.0;
       }
       @foreach (var item in Model){
          <tr>
             @{
                total = total + item.Price;
+
+               total12 = total /12;
                contar++;
+               total24 = total /24;
+               total48 = total /48;
+
             }
          </tr>
       }
@@ -44,31 +52,35 @@
 <div class="container">
      
 
-         <h2 >Usted selecciono Pago a Plazos - Porfavor Seleccione una Opcion:</h2> 
+         <h2 >Porfavor Seleccione una Opcion:</h2> 
          <div class="form-group">
   
-                <select  class="form-control" >
+                <select name="test" id="mySelect" onchange="myFunction()" class = "form-control" >
                      <option value="1">12 Meses</option>
                      <option value="2">24 Meses</option>
                      <option value="3">48 Meses</option>
                 </select>
                 <span  class="text-danger"></span>
             </div>
-            @{
-         var total = 0.0;
-         var contar = 1;
-      }
-      @foreach (var item in Model){
-         <tr>
-            @{
-               total = total + item.Price;
-               contar++;
-            }
-         </tr>
-      }
+            <script>
+function myFunction() {
+    var x = document.getElementById("mySelect").value;
+    if(x == "1")
+    {
+       document.getElementById("demo").innerHTML = "Usted Selecciono : Plazo de 12 Meses " + "Debe pagar "+  "$."+@total12;
+    }
+    if(x == "2")
+    {
+       document.getElementById("demo").innerHTML = "Usted Selecciono : Plazo de 24 Meses " + "Debe pagar "+  "$."+@total24;
+    }
+    if(x == "3")
+    {
+       document.getElementById("demo").innerHTML = "Usted Selecciono : Plazo de 48 Meses " + "Debe pagar "+  "$."+@total48;
+           }
 
-<div class="container">
+}
+</script>
+<h4 id="demo"></h4>
+              <a href="/Pago/Pago" class="btn btn-primary text-white" >TERMINAR COMPRA</a> 
      
-
-         <h2 >Usted selecciono Pago al Contado - El Monto a pagar seria $@total.000 </h2> 
 </body>

@@ -52,7 +52,7 @@
                 @Html.DisplayFor(modelItem => item.Usuario)
             </td>
             <td>
-                $@Html.DisplayFor(modelItem => item.Price).000
+                $@Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Direccion)
@@ -85,23 +85,29 @@
     </tbody>
 </table>
  <hr size="5px" width="30%" align="left" color="#000000"/>
+     
+     
       @{
-         var total = 0.0;
-         var contar = 1;
+         double total = 0;
+         var contar = 1;     
+
       }
       @foreach (var item in Model){
          <tr>
             @{
-               total = total + item.Price;
-               contar++;
+              total = total + item.Price;
+            contar++;
+              
             }
+          
          </tr>
       }
+
 
 <div class="container">
      
 
-         <h5 >Monto Total: $ @total.000 </h5> 
+         <h5 >Monto Total: $ @total</h5> 
 <hr size="5px" width="5%" align="left" color="#000000"/>
 
          

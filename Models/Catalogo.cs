@@ -18,6 +18,7 @@ namespace crmUrbano.Models
 
         public String Direccion {get; set;}
 
+        [DisplayFormat(DataFormatString = "{0:N0}")]
         public double Price {get; set;}
 
         public String ImagenName { get; set;}
