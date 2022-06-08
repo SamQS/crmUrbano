@@ -11,6 +11,6 @@ FROM mcr.microsoft.com/dotnet/aspnet:5.0
 WORKDIR /app
 COPY --from=build-env /app/out .
 
-ENV APP_NET_CORE crmurbano.dll 
+ENV APP_NET_CORE crmUrbano.dll 
 
 CMD ASPNETCORE_URLS=http://*:$PORT dotnet $APP_NET_CORE
