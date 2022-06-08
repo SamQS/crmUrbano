@@ -1,0 +1,80 @@
+@model IEnumerable<crmUrbano.Models.Carrito>
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    ViewData["Title"] = "Reportes-";
+}
+
+<div class  = "container">
+    <hr>
+
+
+         <h1>HISTORIAL DE VENTAS</h1>
+         <hr size="5px" width="30%" align="left" color="#000000"/>
+
+
+
+
+<!--<p>
+    <a asp-action="Create">Create New</a>
+</p>-->
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               <h4 @Html.DisplayNameFor(model => model.Usuario)>Cliente</h4> 
+            </th>
+            <th>
+               <h4 @Html.DisplayNameFor(model => model.Price)>Precio</h4>
+            </th>
+            <th>
+               <h4 @Html.DisplayNameFor(model => model.Direccion)>Dirección</h4>
+            </th>
+            <th>
+               <h4 @Html.DisplayNameFor(model => model.Name)>Detalles</h4> 
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Usuario)
+            </td>
+            <td>
+                $@Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Direccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+
+                
+            
+        </tr>
+}
+    </tbody>
+</table>
+ <hr size="5px" width="30%" align="left" color="#000000"/>
+     
+     
+      
+
+
+     
+
+
+
+
+         
+
+
+
+</div>
+</div>
