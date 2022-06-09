@@ -35,5 +35,9 @@ namespace crmUrbano.Controllers
             return View(await items.ToListAsync());
            
         }
+         public IActionResult ConfirmacionPagoContado()
+        {
+            return View();
+        }
     }
 }
