@@ -33,7 +33,7 @@ public InmueblesController(ILogger<HomeController> logger, ApplicationDbContext 
                 catalogos = catalogos.Where(s => s.Direccion.Contains(searchString)); 
                 
             }else{
-               catalogos = catalogos.Where(s => s.Status.Equals("D"));  
+                catalogos = catalogos.Where(s => s.Status.Equals("D"));  
             }
         
             return View(await catalogos.ToListAsync());

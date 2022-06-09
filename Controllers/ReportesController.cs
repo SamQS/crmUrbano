@@ -28,10 +28,10 @@ public ReportesController(ILogger<HomeController> logger, ApplicationDbContext c
 
         public async Task<IActionResult> Reportes()
         {
+            
         var userID = _userManager.GetUserName(User);
-        var applicationDbContext = _context.Carrito.Include(c => c.Catalogo);            
+        var applicationDbContext = _context.Carrito.Include(c => c.Catalogo);
         return View(await applicationDbContext.ToListAsync());
-
 
     }
 }
